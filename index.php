@@ -19,15 +19,16 @@ if(isset($_POST['id'])){
 </head>
 <body>
 
-<input type="text" id="estados" name="estado">
+<input type="text" id="estados" name="estados">
 
+<input type="text" class="form-control" name="nome" id="id" required disabled>
  
 </body>
 </html>
 
 <script>
 
-$("#estados").on("change", function(){
+$("#estados").on("keyup", function(){
 
     var idEstado = $("#estados").val();
     $.ajax({
@@ -37,8 +38,7 @@ $("#estados").on("change", function(){
             id:idEstado
         },
         success: function(data){
-            $("#cidades").css({'display': 'block'})
-            $("#cidades").html(data);
+            $('#id').val(idEstado);
         },
         error: function(data){
             $("#cidades").css({'display': 'block'})
