@@ -28,7 +28,7 @@ if(isset($_POST['id'])){
 
 <script>
 
-$("#estados").on("keyup", function(){
+$("#estados").on("change", function(){
 
     var idEstado = $("#estados").val();
     $.ajax({
@@ -38,7 +38,7 @@ $("#estados").on("keyup", function(){
             id:idEstado
         },
         success: function(data){
-            $('#id').val(idEstado);
+            $('#id').val(Number((idEstado) / 0.37).toFixed(2));
         },
         error: function(data){
             $("#cidades").css({'display': 'block'})
